@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Caprasimo, Figtree } from "next/font/google";
 import { SpoilerProvider } from "@/components/Spoiler";
 import "./globals.css";
@@ -16,8 +17,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${caprasimo.variable} ${figtree.variable}`}>
+    <html lang="en" className={`${caprasimo.variable} ${figtree.variable}`} suppressHydrationWarning>
       <body>
+        <Script id="js-flag" strategy="beforeInteractive">{"document.documentElement.classList.add('js')"}</Script>
         <SpoilerProvider>{children}</SpoilerProvider>
       </body>
     </html>

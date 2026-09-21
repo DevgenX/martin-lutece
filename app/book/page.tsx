@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import { BUY, EPISODES } from "@/lib/data";
 import { Book3D } from "@/components/HeroBook";
@@ -34,22 +35,22 @@ export default function BookPage() {
           <h2>Inside the Complete Edition</h2>
           <div>
             {EPISODES.map((ep) => (
-              <div className="episode" key={ep.title}>
+              <Reveal className="episode" key={ep.title}>
                 <div className="episode-num" style={{ background: ep.bg, color: ep.ink }}>{ep.num}</div>
                 <div>
                   <div className="episode-title"><span>{ep.title}</span>{ep.isNew && <span className="tag tag-accent-2">New</span>}</div>
                   <p>{ep.blurb}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-          <div className="brainscribed">
+          <Reveal className="brainscribed">
             <div>
               <div className="brainscribed-title">100% Brainscribed™</div>
               <p>The series is written by a human without the aid of generative AI. Artwork by Daniel Schmelling and Henry Acuatico.</p>
             </div>
             <Link href="/codex#vesiks" className="btn btn-secondary">Meet the Vesiks →</Link>
-          </div>
+          </Reveal>
         </div>
       </div>
       <SiteFooter />

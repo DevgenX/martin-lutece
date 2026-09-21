@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SOCIALS } from "@/lib/data";
+import { SOCIAL_LINKS } from "@/lib/data";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -26,7 +26,7 @@ export default function ContactForm() {
         </form>
       )}
       <div className="contact-or">Or find the author on</div>
-      <div className="contact-socials">{SOCIALS.map((s) => <a key={s} href="#" className="tag tag-neutral">{s}</a>)}</div>
+      <div className="contact-socials">{SOCIAL_LINKS.map((s) => <a key={s.name} href={s.href} target="_blank" rel="noreferrer" className="tag tag-neutral">{s.name}</a>)}</div>
     </aside>
   );
 }

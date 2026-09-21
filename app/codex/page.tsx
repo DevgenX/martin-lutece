@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SubscribeForm from "@/components/SubscribeForm";
 import { SpoilerScope, SpoilerSwitch } from "@/components/Spoiler";
@@ -30,7 +31,7 @@ export default function CodexPage() {
         <CatBar />
       </div>
 
-      <section className="codex-section" id="vesiks">
+      <Reveal as="section" className="codex-section" id="vesiks">
         <div className="section-head">
           <Sigil />
           <div><h2>The Vesiks</h2><p>Seven Earth-born. One who crosses universes to assemble them.</p></div>
@@ -45,13 +46,13 @@ export default function CodexPage() {
             </Link>
           ))}
         </div>
-      </section>
+      </Reveal>
 
       <Divider />
 
       <section className="guides" id="guides">
         {GUIDES.map((g) => (
-          <Link key={g.name} href="/codex/vesiks/eg-boothby" className="lore-link guide">
+          <Reveal key={g.name} delay={(GUIDES.indexOf(g) % 2) * 120}><Link href="/codex/vesiks/eg-boothby" className="lore-link guide">
             <div className="washed guide-art" style={{ background: g.bg }}>
               {g.img ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -69,12 +70,12 @@ export default function CodexPage() {
               <span className="guide-blurb">{g.blurb}</span>
               <span className="guide-more">{g.count} entries · Read more →</span>
             </div>
-          </Link>
+          </Link></Reveal>
         ))}
       </section>
 
       <section className="codex-two" id="glossary">
-        <div>
+        <Reveal>
           <h2>Glossary of the Summons</h2>
           <div className="glossary">
             {GLOSSARY.map((t) => (
@@ -84,24 +85,24 @@ export default function CodexPage() {
               </Link>
             ))}
           </div>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={120}>
           <h2>Before you read</h2>
           <div className="faq">
             {FAQ.map((q) => (
               <details key={q.q}><summary>{q.q}<span>+</span></summary><p>{q.a}</p></details>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <div className="codex-sub">
+      <Reveal className="codex-sub">
         <div>
           <div className="codex-sub-title">The Codex grows with the series</div>
           <p>New entries land with each episode. Subscribe to hear when the Codex updates, and for a chance to win a signed poster.</p>
         </div>
         <SubscribeForm />
-      </div>
+      </Reveal>
       <SiteFooter subscribe={false} />
     </SpoilerScope>
   );

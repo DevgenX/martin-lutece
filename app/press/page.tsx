@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
 import BioBox from "@/components/BioBox";
@@ -18,7 +19,7 @@ export default function PressPage() {
       </div>
       <div className="press-grid">
         <div className="press-main">
-          <div className="press-cards">
+          <Reveal className="press-cards">
             <Link href="#" className="card lore-link press-card is-terra">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4" /><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" /></svg>
               <div><div className="card-title">Press kit</div><p className="card-body">Cover in print and web sizes, author photos, bio in three lengths, logo files. ZIP, 48 MB.</p></div>
@@ -27,9 +28,9 @@ export default function PressPage() {
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-800)" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>
               <div><div className="card-title">Advance review copy</div><p className="card-body">Free ARCs via NetGalley for reviewers, bloggers and booksellers ahead of 31 October.</p></div>
             </a>
-          </div>
-          <BioBox />
-          <div className="events">
+          </Reveal>
+          <Reveal><BioBox /></Reveal>
+          <Reveal className="events">
             <h2>Upcoming events</h2>
             <div>
               {EVENTS.map((ev) => (
@@ -40,9 +41,9 @@ export default function PressPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
-        <ContactForm />
+        <Reveal delay={120}><ContactForm /></Reveal>
       </div>
       <SiteFooter />
     </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import HeroBook from "@/components/HeroBook";
 import { BIO, BUY, LORE_CATS } from "@/lib/data";
@@ -27,7 +28,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="edition">
+      <Reveal as="section" className="edition">
         <div className="edition-intro">
           <span className="kicker">In the Complete Edition</span>
           <h2>Three episodes. Eight letters. One volume.</h2>
@@ -39,9 +40,9 @@ export default function Home() {
           <div className="card"><span className="card-kicker">Episode III · New</span><span className="card-title">Rhykeng</span><p className="card-body">The continuation: the Vesiks make their way to Siberia.</p></div>
           <div className="card"><span className="card-kicker">Appendix</span><span className="card-title">The Letters of Divinity</span><p className="card-body">Eight letters, collected for the first time.</p></div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="archive">
+      <Reveal as="section" className="archive">
         <span className="kicker kicker--sage">The Archive</span>
         <div className="archive-head">
           <h2>Seven Vesiks. Seven worlds. One call.</h2>
@@ -56,9 +57,9 @@ export default function Home() {
           ))}
           <Link href="/codex" className="btn btn-primary archive-cta">Open the archive →</Link>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="author" id="author">
+      <Reveal as="section" className="author" id="author">
         <figure className="washed author-photo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/author-photo.jpg" alt="J. Martin Lutece at a signing table with copies of his books" width={1024} height={577} />
@@ -69,13 +70,13 @@ export default function Home() {
           <p className="author-bio">{BIO}</p>
           <p className="author-brain">The series is 100% Brainscribed™ — written by a human without generative AI.</p>
           <div className="author-actions">
-            <Link href="/press" className="btn btn-secondary">About the author</Link>
+            <Link href="/author" className="btn btn-secondary">About the author</Link>
             <Link href="/press" className="btn btn-ghost">Press kit ↓</Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="quotes">
+      <Reveal as="section" className="quotes">
         <span className="kicker kicker--muted">What readers say</span>
         <div className="quotes-grid">
           {QUOTES.map((q) => (
@@ -85,7 +86,7 @@ export default function Home() {
             </figure>
           ))}
         </div>
-      </section>
+      </Reveal>
 
       <SiteFooter />
     </div>

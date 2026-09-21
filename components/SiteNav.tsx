@@ -7,14 +7,14 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/book", label: "The Book" },
   { href: "/codex", label: "Codex" },
-  { href: "/#author", label: "Author" },
+  { href: "/author", label: "Author" },
   { href: "/press", label: "Press" },
 ];
 
 export default function SiteNav() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
-  const current = (href: string) => (href === "/" ? path === "/" : href.startsWith("/#") ? false : path.startsWith(href));
+  const current = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
   return (
     <nav className="site-nav" aria-label="Main">
       <Link href="/" className="nav-brand">J. Martin Lutece</Link>

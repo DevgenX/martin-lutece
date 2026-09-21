@@ -1,5 +1,38 @@
 export const LAUNCH = new Date("2026-10-31T00:00:00");
-export const SOCIALS = ["Instagram", "TikTok", "Bluesky", "X", "Facebook", "Snapchat", "Reddit"];
+export const SOCIAL_LINKS = [
+  { name: "Instagram", href: "https://www.instagram.com/jmartinlutece" },
+  { name: "TikTok", href: "https://www.tiktok.com/@theeighthdivinity" },
+  { name: "Bluesky", href: "https://bsky.app/profile/jmartinlutece.bsky.social" },
+  { name: "X", href: "https://x.com/eighthdivinity" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61594056084965" },
+  { name: "Reddit", href: "https://www.reddit.com/user/jmartinlutece/" },
+];
+export const SOCIALS = SOCIAL_LINKS.map((s) => s.name);
+export const AUTHOR_SITE = "https://theeighthdivinity.com";
+
+export const SERIES_ABOUT =
+  "Tales of THE EIGHTH DIVINITY is a science fiction series exploring our world's history and present through the vantage point of seven very different people who discover their connection to each other and the greater multiverse. Some are good, some are bad, and all have access to an ancient power capable of saving this world. Governments, corporations and extraterrestrials want it too. The story spans America, Japan, Norway and Russia, with local color and complex relationships.";
+
+export const AUTHOR_FACETS = [
+  { glyph: "I", title: "Author", body: "A science fiction fan since childhood. Summons of The Eighth Divinity began as two self-published episodes and now returns as the Complete Edition with a new third episode and the eight Letters of Divinity." },
+  { glyph: "II", title: "Musician", body: "A pianist who performs locally in Tucson and streams online. Expect a piano set alongside the readings at launch events." },
+  { glyph: "III", title: "Statistician", body: "Two decades in high tech in the Pacific Northwest before moving to the Southwest to write. He still consults in tech, and exhibits at conventions under the Algo-Stats banner." },
+];
+
+export const AUTHOR_TIMELINE = [
+  { when: "Sep 2026", title: "eBook pre-orders open", where: "Kindle and Nook", kind: "Launch", tagClass: "tag-accent", href: "https://theeighthdivinity.com/2026/09/14/presales-are-ready-for-ebooks/" },
+  { when: "Sep 2026", title: "Tucson Comic-Con", where: "Artist alley, booth AA226 · advance review copies and prizes", kind: "Convention", tagClass: "tag-accent-2", href: "https://theeighthdivinity.com/2026/09/04/tucson-comic-con-is-here/" },
+  { when: "Jul 2026", title: "San Diego Comic-Con", where: "Co-hosted vendor table · signings, signed original art by Daniel Schmelling, raffles", kind: "Convention", tagClass: "tag-accent-2", href: "https://www.comic-con.org/cc/" },
+  { when: "May 2025", title: "Signing, Q&A and readings", where: "Stacks Book Club, Oro Valley, AZ", kind: "Signing", tagClass: "tag-neutral" },
+  { when: "Apr 2025", title: "Book signing", where: "Barnes & Noble East Broadway, Tucson, AZ", kind: "Signing", tagClass: "tag-neutral" },
+  { when: "Mar 2025", title: "Book signing", where: "Barnes & Noble Westside, Tucson, AZ", kind: "Signing", tagClass: "tag-neutral" },
+];
+
+export const AUTHOR_POSTS = [
+  { date: "14 Sep 2026", title: "Presales are ready for eBooks!", excerpt: "You can pre-order electronic copies of the book through Kindle and Nook.", href: "https://theeighthdivinity.com/2026/09/14/presales-are-ready-for-ebooks/" },
+  { date: "4 Sep 2026", title: "Tucson Comic-Con is here!", excerpt: "Come see me! Booth AA226.", href: "https://theeighthdivinity.com/2026/09/04/tucson-comic-con-is-here/" },
+  { date: "24 Aug 2026", title: "Is SoTED for you?", excerpt: "A quiz to find out whether the series is for you, with prizes.", href: "https://theeighthdivinity.com/2026/08/24/is-soted-for-you/" },
+];
 
 export const BIO =
   "J. Martin Lutece is an American author, musician, and statistician. A fan of science fiction since childhood, he transitioned from high tech in the Northwest to storytelling in the Southwest. He continues to consult in tech, and he performs piano locally and online. He lives with his husband and two cats.";
