@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/organic-7af0eaef-20c6-4c36-8f0f-fa50e1fc6838/styles.css">
+<script src="_ds/organic-7af0eaef-20c6-4c36-8f0f-fa50e1fc6838/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#e9dfcd;font-family:var(--font-body);color:var(--color-text)}
+a{color:var(--color-accent)}a:hover{color:var(--color-accent-600)}
+.dv-turn{padding:40px 44px 32px;scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#201e1d;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 var(--font-body);color:#201e1d}
+.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#201e1d;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 var(--font-body);color:rgba(0,0,0,.6)}
+.dv-card{max-width:100%;background:var(--color-bg);border-radius:20px;box-shadow:0 1px 3px rgba(0,0,0,.08),0 12px 40px rgba(46,43,37,.12);overflow:hidden}
+.dv-opt:target .dv-oid{background:var(--color-accent);color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 var(--font-body);color:rgba(0,0,0,.55)}
+.dv-notes{max-width:760px;font:14px/1.6 var(--font-body);color:rgba(32,30,29,.8);margin:0 0 28px}
+.dv-notes p{margin:0 0 8px}
+@keyframes floatBook{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pulseRing{0%{transform:scale(.9);opacity:.5}100%{transform:scale(1.6);opacity:0}}
+.site-nav a{color:inherit;text-decoration:none;font-size:14px}
+.site-nav a:hover,.site-nav a[aria-current='page']{color:var(--color-accent)}
+.lore-link{color:inherit;text-decoration:none}
+.lore-link:hover{color:var(--color-accent-700)}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">J. Martin Lutece · Summons of the Eight Divinity — site mockups</span></div>
+<div class="dv-notes">
+<p><strong>Assumptions.</strong> No cover art, bio or synopsis supplied, so every line of book copy here is placeholder and marked for replacement. Tone read as literary, character-driven sci-fi: quiet, mythic, unhurried. Sage-green cloth cover with a cream title stands in for the real jacket.</p>
+<p><strong>System.</strong> Organic design system: cream ground, terracotta primary, sage as the lore hub's voice. Caprasimo for display, Figtree for reading. Pill buttons, over-rounded containers, washed photography. Motion: the hero book is a CSS 3D object that tilts toward the cursor (hover <a class="dv-oid" href="#1a">1a</a>) and idles on a slow float; this maps 1:1 to a Three.js / Blender-rendered book in the build. Section reveals use short rise-in fades.</p>
+<p><strong>Lore hub.</strong> Wiki structure with four top categories (Characters, Worlds, Factions, Timeline) plus a glossary, a Before/After-reading spoiler switch that blurs late-book content, an A–Z strip, and infobox-style entry pages.</p>
+</div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Homepage — desktop 1280. Move your cursor over the hero to tilt the book.</div>
+<div class="dv-card" style="width:1280px">
+  <nav class="nav site-nav" style="padding:18px 56px">
+    <span class="nav-brand">J. Martin Lutece</span>
+    <a href="#1a" aria-current="page">Home</a><a href="#1a">The Book</a><a href="#1b">Lore</a><a href="#1a">Author</a><a href="#1a">Press</a>
+    <button type="button" class="btn btn-primary">Pre-order</button>
+  </nav>
+  <div style="position:relative;overflow:hidden" onMouseMove="{{ onHeroMove }}" onMouseLeave="{{ onHeroLeave }}">
+    <div style="position:absolute;right:-120px;top:-200px;width:520px;height:520px;border-radius:50%;background:var(--color-accent-2-200);pointer-events:none"></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:48px;align-items:center;padding:72px 56px 84px;position:relative">
+      <div style="animation:riseIn .8s ease both">
+        <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin-bottom:22px">A novel · Out 31 October 2026</span>
+        <h1 style="font-family:var(--font-heading);font-weight:400;font-size:74px;line-height:1.04;margin:0 0 0 -0.028em;letter-spacing:0">Summons of the<br>Eight Divinity</h1>
+        <p style="font-size:17px;line-height:28px;max-width:52ch;margin:30px 0 0;color:rgba(32,30,29,.85)">[Placeholder synopsis] Eight were called across the dark to answer for a world that no longer remembers making them. One of them is lying. The first book in a character-driven science fiction series by J. Martin Lutece.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center">
+          <button type="button" class="btn btn-primary" style="padding:12px 22px;font-size:15px">Pre-order the book</button>
+          <a href="#1b" class="btn btn-ghost" style="font-size:15px">Explore the lore →</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:40px">
+          <span style="position:relative;width:12px;height:12px;flex:none"><span style="position:absolute;inset:0;border-radius:50%;background:var(--color-accent)"></span><span style="position:absolute;inset:0;border-radius:50%;border:2px solid var(--color-accent);animation:pulseRing 1.8s ease-out infinite"></span></span>
+          <sc-if value="{{ showCountdown }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:rgba(32,30,29,.7)"><strong style="color:var(--color-text)">{{ daysLeft }} days</strong> until launch · Pre-orders open now</span></sc-if>
+        </div>
+      </div>
+      <div style="height:560px;display:grid;place-items:center;perspective:1400px">
+        <div style="animation:floatBook 6s ease-in-out infinite">
+          <div style="width:320px;height:470px;position:relative;transform-style:preserve-3d;transition:transform .35s ease-out;transform:{{ bookTransform }}">
+            <div style="position:absolute;inset:0;background:var(--color-accent-2-800);border-radius:6px 18px 18px 6px;transform:translateZ(22px);box-shadow:0 40px 80px -20px rgba(46,43,37,.5);padding:36px 30px;display:flex;flex-direction:column;justify-content:space-between;backface-visibility:hidden">
+              <div style="width:110px;height:110px;border-radius:50%;border:2px solid var(--color-accent-2-400);margin:20px auto 0;position:relative;animation:spinSlow 40s linear infinite">
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);left:50%;top:-6px;margin-left:-6px"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);left:50%;bottom:-6px;margin-left:-6px"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);top:50%;left:-6px;margin-top:-6px"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);top:50%;right:-6px;margin-top:-6px"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);top:14%;left:14%"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);top:14%;right:14%"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);bottom:14%;left:14%"></span>
+                <span style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--color-accent-300);bottom:14%;right:14%"></span>
+              </div>
+              <div style="text-align:center">
+                <div style="font-family:var(--font-heading);font-size:34px;line-height:1.08;color:var(--color-bg)">Summons of the Eight Divinity</div>
+                <div style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-2-300);margin-top:22px">J. Martin Lutece</div>
+              </div>
+            </div>
+            <div style="position:absolute;left:0;top:0;width:44px;height:470px;background:var(--color-accent-2-900);transform:rotateY(-90deg) translateZ(22px);transform-origin:left center;border-radius:6px 0 0 6px;display:grid;place-items:center"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-heading);font-size:14px;color:var(--color-bg);letter-spacing:.06em;white-space:nowrap">Summons of the Eight Divinity · Lutece</span></div>
+            <div style="position:absolute;right:0;top:8px;width:44px;height:454px;background:repeating-linear-gradient(to right,#fbf5ea 0 1px,#e6dcc9 1px 3px);transform:rotateY(90deg) translateZ(298px);transform-origin:right center"></div>
+            <div style="position:absolute;inset:0;background:var(--color-accent-2-900);border-radius:6px 18px 18px 6px;transform:translateZ(-22px) rotateY(180deg)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:8px 56px 64px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:rgba(32,30,29,.6)">Pre-order from</span>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="#1a" class="btn btn-secondary">Amazon</a><a href="#1a" class="btn btn-secondary">Barnes &amp; Noble</a><a href="#1a" class="btn btn-secondary">Bookshop.org</a><a href="#1a" class="btn btn-secondary">Kobo</a><a href="#1a" class="btn btn-secondary">Apple Books</a>
+    </div>
+  </div>
+
+  <div style="padding:64px 56px 72px;background:var(--color-accent-2-100);border-radius:56px 56px 0 0">
+    <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-2-800);margin-bottom:18px">The Archive</span>
+    <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end">
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:44px;line-height:1.08;margin:0">Enter the world before, or after, you read it.</h2>
+      <p style="font-size:16px;line-height:28px;margin:0;max-width:50ch;color:rgba(32,30,29,.8)">A browsable companion to the series. Characters, worlds, factions and a timeline, with a spoiler switch so nothing is given away until you want it to be.</p>
+    </div>
+    <div style="display:flex;gap:28px;margin-top:52px;align-items:flex-end;flex-wrap:wrap">
+      <sc-for list="{{ loreCats }}" as="c" hint-placeholder-count="4">
+        <a href="#1b" class="lore-link" style="width:{{ c.size }};aspect-ratio:1;border-radius:50%;background:{{ c.bg }};display:grid;place-content:center;text-align:center;padding:24px;box-sizing:border-box;transition:transform .3s" style-hover="transform:translateY(-8px)">
+          <span style="font-family:var(--font-heading);font-size:40px;line-height:1;color:{{ c.ink }}">{{ c.count }}</span>
+          <span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-top:12px;color:rgba(32,30,29,.7)">{{ c.name }}</span>
+        </a>
+      </sc-for>
+      <a href="#1b" class="btn btn-primary" style="margin-left:auto;margin-bottom:12px">Open the archive →</a>
+    </div>
+  </div>
+
+  <div style="padding:80px 56px;display:grid;grid-template-columns:400px minmax(0,1fr);gap:72px;align-items:center">
+    <figure class="washed" style="margin:0;border-radius:56px;overflow:hidden"><image-slot id="author-photo" shape="rect" placeholder="Author portrait" style="width:400px;height:480px"></image-slot></figure>
+    <div>
+      <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin-bottom:18px">The author</span>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:40px;line-height:1.1;margin:0">J. Martin Lutece</h2>
+      <p style="font-size:16px;line-height:28px;margin:24px 0 0;max-width:52ch;color:rgba(32,30,29,.8)">[Placeholder bio] J. Martin Lutece writes character-driven science fiction about people who inherit systems they did not build. Summons of the Eight Divinity is his debut novel and the first in a planned series.</p>
+      <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap">
+        <a href="#1a" class="btn btn-secondary">About the author</a><a href="#1a" class="btn btn-ghost">Press kit ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:0 56px 56px;background:var(--color-surface);border-radius:40px;padding:44px 48px;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center">
+    <div>
+      <h3 style="font-family:var(--font-heading);font-weight:400;font-size:28px;line-height:1.1;margin:0">Hear when the next one is coming</h3>
+      <p style="font-size:15px;line-height:26px;margin:12px 0 0;color:rgba(32,30,29,.75)">Launch news, signings and new archive entries. A few letters a year, no more.</p>
+    </div>
+    <div style="display:flex;gap:10px"><input class="input" type="email" placeholder="you@example.com" aria-label="Email"><button type="button" class="btn btn-primary">Subscribe</button></div>
+  </div>
+
+  <footer style="padding:0 56px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;color:rgba(32,30,29,.65)">
+    <span>© 2026 J. Martin Lutece · Press &amp; contact: press@jmartinlutece.com</span>
+    <div style="display:flex;gap:8px">
+      <a href="#1a" class="btn btn-secondary btn-icon" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+      <a href="#1a" class="btn btn-secondary btn-icon" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+      <a href="#1a" class="btn btn-secondary btn-icon" aria-label="Threads / X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+      <a href="#1a" class="btn btn-secondary btn-icon" aria-label="Goodreads"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></a>
+    </div>
+  </footer>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Lore hub index — desktop 1280. Toggle the spoiler switch.</div>
+<div class="dv-card" style="width:1280px">
+  <nav class="nav site-nav" style="padding:18px 56px">
+    <span class="nav-brand">J. Martin Lutece</span>
+    <a href="#1a">Home</a><a href="#1a">The Book</a><a href="#1b" aria-current="page">Lore</a><a href="#1a">Author</a><a href="#1a">Press</a>
+    <button type="button" class="btn btn-primary">Pre-order</button>
+  </nav>
+  <div style="padding:48px 56px 40px;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:48px;align-items:end">
+    <div>
+      <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-2-800);margin-bottom:18px">The Archive · 71 entries</span>
+      <h1 style="font-family:var(--font-heading);font-weight:400;font-size:64px;line-height:1.04;margin:0 0 0 -0.028em">Everything the Eight left behind.</h1>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+      <div style="position:relative;width:100%"><svg style="position:absolute;left:16px;top:50%;margin-top:-8px;color:rgba(32,30,29,.5)" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="input" type="search" placeholder="Search characters, places, terms…" aria-label="Search the archive" style="padding-left:40px;min-height:44px"></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:13px;color:rgba(32,30,29,.65)">Spoilers</span>
+        <div class="seg" role="group" aria-label="Spoiler mode">
+          <label class="seg-opt" style="cursor:pointer"><input type="radio" name="sp-1b" checked="{{ isBefore }}" onChange="{{ setBefore }}">Before reading</label>
+          <label class="seg-opt" style="cursor:pointer"><input type="radio" name="sp-1b" checked="{{ isAfter }}" onChange="{{ setAfter }}">After reading</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 56px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px">
+    <sc-for list="{{ loreCats }}" as="c" hint-placeholder-count="4">
+      <a href="#1c" class="card lore-link" style="padding:26px 26px 22px;background:{{ c.bg }};min-height:220px;justify-content:space-between;transition:transform .3s" style-hover="transform:translateY(-6px)">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.55);display:grid;place-items:center;font-family:var(--font-heading);font-size:22px;color:{{ c.ink }}">{{ c.count }}</div>
+        <div>
+          <div class="card-title" style="font-size:24px">{{ c.name }}</div>
+          <p class="card-body" style="font-size:14px;opacity:.75;margin-top:6px">{{ c.blurb }}</p>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+
+  <div style="padding:64px 56px 0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px">
+    <div>
+      <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin-bottom:20px">Start here</span>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ featured }}" as="f" hint-placeholder-count="5">
+          <a href="#1c" class="lore-link" style="display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(32,30,29,.08)">
+            <div style="width:64px;height:64px;border-radius:50%;background:{{ f.bg }};display:grid;place-items:center;font-family:var(--font-heading);font-size:22px;color:{{ f.ink }}">{{ f.initial }}</div>
+            <div>
+              <div style="font-family:var(--font-heading);font-size:20px;line-height:1.15;filter:{{ f.blur }};transition:filter .3s">{{ f.name }}</div>
+              <div style="font-size:14px;color:rgba(32,30,29,.7);margin-top:4px;filter:{{ f.blur }};transition:filter .3s">{{ f.blurb }}</div>
+            </div>
+            <span class="tag {{ f.tagClass }}">{{ f.cat }}</span>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ isBefore }}" hint-placeholder-val="{{ true }}"><p style="font-size:13px;color:rgba(32,30,29,.6);margin:16px 0 0">Blurred entries contain late-book material. Switch to “After reading” to reveal them.</p></sc-if>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:var(--color-accent-2-100);border-radius:32px;padding:28px 30px">
+        <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-2-800);margin-bottom:12px">Entry of the week</span>
+        <div style="font-family:var(--font-heading);font-size:26px;line-height:1.1">The Summons</div>
+        <p style="font-size:14px;line-height:24px;color:rgba(32,30,29,.75);margin:10px 0 18px">[Placeholder] The ritual, broadcast or accident that called the Eight. Nobody agrees which it was, and the archive records all three versions.</p>
+        <a href="#1c" class="btn btn-secondary" style="background:var(--color-bg)">Read the entry</a>
+      </div>
+      <div style="background:var(--color-surface);border-radius:32px;padding:28px 30px">
+        <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:rgba(32,30,29,.6);margin-bottom:14px">Recently updated</span>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="#1c" class="lore-link" style="display:flex;justify-content:space-between"><span>Halcyon Reach</span><span style="color:rgba(32,30,29,.5)">Sep 18</span></a>
+          <a href="#1c" class="lore-link" style="display:flex;justify-content:space-between"><span>The Ninth Chair</span><span style="color:rgba(32,30,29,.5)">Sep 14</span></a>
+          <a href="#1c" class="lore-link" style="display:flex;justify-content:space-between"><span>Glossary: “Tithe”</span><span style="color:rgba(32,30,29,.5)">Sep 09</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:56px 56px 48px">
+    <span style="display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:rgba(32,30,29,.6);margin-bottom:16px">Browse A–Z</span>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <sc-for list="{{ alpha }}" as="l" hint-placeholder-count="26">
+        <a href="#1b" class="lore-link" style="width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-heading);font-size:15px;background:{{ l.bg }};color:{{ l.ink }}" style-hover="background:var(--color-accent-200)">{{ l.ch }}</a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Character entry page — desktop 1280. Spoiler blocks respect the switch in <a class="dv-oid" href="#1b">1b</a>.</div>
+<div class="dv-card" style="width:1280px">
+  <nav class="nav site-nav" style="padding:18px 56px">
+    <span class="nav-brand">J. Martin Lutece</span>
+    <a href="#1a">Home</a><a href="#1a">The Book</a><a href="#1b" aria-current="page">Lore</a><a href="#1a">Author</a><a href="#1a">Press</a>
+    <button type="button" class="btn btn-primary">Pre-order</button>
+  </nav>
+  <div style="display:grid;grid-template-columns:220px minmax(0,1fr) 320px;gap:48px;padding:24px 56px 64px;align-items:start">
+    <aside style="position:sticky;top:24px;display:flex;flex-direction:column;gap:6px;font-size:14px">
+      <a href="#1b" class="lore-link" style="display:flex;align-items:center;gap:8px;color:rgba(32,30,29,.65);margin-bottom:14px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>The Archive</a>
+      <a href="#1c" class="lore-link" style="padding:8px 14px;border-radius:999px;background:var(--color-accent-2-200);font-weight:600">Characters</a>
+      <a href="#1b" class="lore-link" style="padding:8px 14px;border-radius:999px" style-hover="background:var(--color-neutral-200)">Worlds</a>
+      <a href="#1b" class="lore-link" style="padding:8px 14px;border-radius:999px" style-hover="background:var(--color-neutral-200)">Factions</a>
+      <a href="#1b" class="lore-link" style="padding:8px 14px;border-radius:999px" style-hover="background:var(--color-neutral-200)">Timeline</a>
+      <a href="#1b" class="lore-link" style="padding:8px 14px;border-radius:999px" style-hover="background:var(--color-neutral-200)">Glossary</a>
+      <div style="margin-top:20px;padding:0 14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:rgba(32,30,29,.5)">On this page</div>
+      <a href="#1c" class="lore-link" style="padding:6px 14px;color:rgba(32,30,29,.75)">Overview</a>
+      <a href="#1c" class="lore-link" style="padding:6px 14px;color:rgba(32,30,29,.75)">History</a>
+      <a href="#1c" class="lore-link" style="padding:6px 14px;color:rgba(32,30,29,.75)">In the book</a>
+      <a href="#1c" class="lore-link" style="padding:6px 14px;color:rgba(32,30,29,.75)">Relationships</a>
+    </aside>
+
+    <article style="animation:riseIn .6s ease both">
+      <div style="font-size:13px;color:rgba(32,30,29,.6);display:flex;gap:8px;align-items:center;margin-bottom:22px"><a href="#1b" class="lore-link">Archive</a><span>/</span><a href="#1c" class="lore-link">Characters</a><span>/</span><span>Ilse Varrow</span></div>
+      <div style="display:flex;gap:8px;margin-bottom:16px"><span class="tag tag-accent-2">Character</span><span class="tag tag-neutral">The Eight</span><span class="tag tag-outline">Point of view</span></div>
+      <h1 style="font-family:var(--font-heading);font-weight:400;font-size:58px;line-height:1.04;margin:0 0 0 -0.028em">Ilse Varrow</h1>
+      <p style="font-family:var(--font-heading);font-size:22px;line-height:1.3;color:var(--color-accent-700);margin:18px 0 0">“I did not come because I was called. I came because no one else would.”</p>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:28px;margin:44px 0 12px">Overview</h2>
+      <p style="font-size:16px;line-height:28px;margin:0;color:rgba(32,30,29,.85)">[Placeholder entry text] Ilse Varrow is the third of the Eight to answer the Summons and the only one to arrive alone. A former archivist of Halcyon Reach, she keeps the record the others would rather lose. Her chapters open the novel.</p>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:28px;margin:44px 0 12px">History</h2>
+      <p style="font-size:16px;line-height:28px;margin:0;color:rgba(32,30,29,.85)">[Placeholder] Born in the lower terraces of the Reach during the long quiet. Trained under the Tithe-keepers; expelled for reasons the archive leaves blank. Sixteen years unaccounted for before the Summons.</p>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:28px;margin:44px 0 12px">In the book</h2>
+      <div style="position:relative;border-radius:24px;overflow:hidden">
+        <p style="font-size:16px;line-height:28px;margin:0;color:rgba(32,30,29,.85);filter:{{ spoilerBlur }};transition:filter .35s;user-select:{{ spoilerSelect }}">[Placeholder spoiler content] Ilse’s discovery in the Ninth Chair reframes the entire Summons: the Eight were not called, they were recalled. Her final chapter is written in the second person for the first time in the novel.</p>
+        <sc-if value="{{ isBefore }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:10px;background:rgba(245,234,216,.35)">
+            <span style="font-size:13px;color:rgba(32,30,29,.75)">Contains late-book spoilers</span>
+            <button type="button" class="btn btn-secondary" style="background:var(--color-bg)" onClick="{{ setAfter }}">Reveal this section</button>
+          </div>
+        </sc-if>
+      </div>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:28px;margin:44px 0 16px">Relationships</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
+        <a href="#1c" class="card lore-link" style="padding:18px;gap:4px"><span class="card-kicker">Rival</span><span class="card-title">Doran Sael</span><span class="card-body" style="font-size:13px">First of the Eight to answer.</span></a>
+        <a href="#1c" class="card lore-link" style="padding:18px;gap:4px"><span class="card-kicker">Mentor</span><span class="card-title">The Tithe-keeper</span><span class="card-body" style="font-size:13px">Unnamed through the first book.</span></a>
+        <a href="#1c" class="card lore-link" style="padding:18px;gap:4px"><span class="card-kicker">Home</span><span class="card-title">Halcyon Reach</span><span class="card-body" style="font-size:13px">Terraced city on the dark side.</span></a>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:56px;padding-top:24px;border-top:1px solid rgba(32,30,29,.08);font-size:14px">
+        <a href="#1c" class="lore-link" style="color:rgba(32,30,29,.7)">← Doran Sael</a>
+        <a href="#1c" class="lore-link" style="color:rgba(32,30,29,.7)">Kethe of the Ninth →</a>
+      </div>
+    </article>
+
+    <aside class="card elev-sm" style="position:sticky;top:24px;padding:0;overflow:hidden;gap:0">
+      <div class="washed"><image-slot id="ilse-portrait" shape="rect" placeholder="Character art" style="width:100%;height:300px"></image-slot></div>
+      <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:0">
+        <div style="font-family:var(--font-heading);font-size:20px;margin-bottom:14px">Ilse Varrow</div>
+        <sc-for list="{{ infobox }}" as="row" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px solid rgba(32,30,29,.08);font-size:13px">
+            <span style="color:rgba(32,30,29,.55);letter-spacing:.04em;text-transform:uppercase;font-size:11px;font-weight:600;padding-top:2px">{{ row.k }}</span>
+            <span style="filter:{{ row.blur }};transition:filter .35s">{{ row.v }}</span>
+          </div>
+        </sc-for>
+        <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap"><span class="tag tag-accent">Book 1</span><span class="tag tag-accent-2">Ch. 1, 7, 12, 31</span></div>
+      </div>
+    </aside>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Mobile 390 — homepage and lore hub (most traffic arrives from social links).</div>
+<div style="display:flex;gap:28px;align-items:flex-start">
+  <div class="dv-card" style="width:390px">
+    <nav class="nav site-nav" style="padding:16px 20px"><span class="nav-brand">J. Martin Lutece</span><button type="button" class="btn btn-secondary btn-icon" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav>
+    <div style="position:relative;overflow:hidden;padding:24px 20px 0">
+      <div style="position:absolute;right:-90px;top:-120px;width:280px;height:280px;border-radius:50%;background:var(--color-accent-2-200)"></div>
+      <span style="display:block;position:relative;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin-bottom:14px">Out 31 October 2026</span>
+      <h1 style="position:relative;font-family:var(--font-heading);font-weight:400;font-size:40px;line-height:1.04;margin:0">Summons of the Eight Divinity</h1>
+      <div style="display:grid;place-items:center;padding:36px 0 20px;perspective:900px">
+        <div style="animation:floatBook 6s ease-in-out infinite">
+          <div style="width:190px;height:280px;position:relative;transform-style:preserve-3d;transform:rotateY(-18deg) rotateX(6deg)">
+            <div style="position:absolute;inset:0;background:var(--color-accent-2-800);border-radius:4px 12px 12px 4px;transform:translateZ(14px);box-shadow:0 30px 50px -16px rgba(46,43,37,.5);padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between">
+              <div style="width:64px;height:64px;border-radius:50%;border:2px solid var(--color-accent-2-400);margin:10px auto 0"></div>
+              <div style="text-align:center"><div style="font-family:var(--font-heading);font-size:20px;line-height:1.08;color:var(--color-bg)">Summons of the Eight Divinity</div><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-2-300);margin-top:12px">J. Martin Lutece</div></div>
+            </div>
+            <div style="position:absolute;left:0;top:0;width:28px;height:280px;background:var(--color-accent-2-900);transform:rotateY(-90deg) translateZ(14px);transform-origin:left center;border-radius:4px 0 0 4px"></div>
+            <div style="position:absolute;right:0;top:5px;width:28px;height:270px;background:repeating-linear-gradient(to right,#fbf5ea 0 1px,#e6dcc9 1px 3px);transform:rotateY(90deg) translateZ(176px);transform-origin:right center"></div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15px;line-height:25px;margin:0;color:rgba(32,30,29,.85)">[Placeholder synopsis] Eight were called across the dark to answer for a world that no longer remembers making them. One of them is lying.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin:24px 0 8px">
+        <button type="button" class="btn btn-primary" style="padding:14px;font-size:15px;min-height:48px">Pre-order the book</button>
+        <a href="#1b" class="btn btn-secondary" style="padding:14px;font-size:15px;min-height:48px">Explore the lore</a>
+      </div>
+      <div style="display:flex;gap:8px;overflow:hidden;padding:12px 0 28px;flex-wrap:wrap"><span class="tag tag-neutral">Amazon</span><span class="tag tag-neutral">B&amp;N</span><span class="tag tag-neutral">Bookshop.org</span><span class="tag tag-neutral">Kobo</span><span class="tag tag-neutral">Apple Books</span></div>
+    </div>
+    <div style="background:var(--color-accent-2-100);border-radius:36px 36px 0 0;padding:32px 20px 36px">
+      <span style="display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-2-800);margin-bottom:12px">The Archive</span>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:28px;line-height:1.1;margin:0 0 20px">Enter the world before, or after, you read it.</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <sc-for list="{{ loreCats }}" as="c" hint-placeholder-count="4">
+          <a href="#1b" class="lore-link" style="background:{{ c.bg }};border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:6px;min-height:104px;justify-content:flex-end"><span style="font-family:var(--font-heading);font-size:26px;line-height:1;color:{{ c.ink }}">{{ c.count }}</span><span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:rgba(32,30,29,.7)">{{ c.name }}</span></a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div class="dv-card" style="width:390px">
+    <nav class="nav site-nav" style="padding:16px 20px"><span class="nav-brand">J. Martin Lutece</span><button type="button" class="btn btn-secondary btn-icon" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></nav>
+    <div style="padding:20px 20px 0">
+      <span style="display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-2-800);margin-bottom:12px">The Archive · 71 entries</span>
+      <h1 style="font-family:var(--font-heading);font-weight:400;font-size:36px;line-height:1.05;margin:0 0 20px">Everything the Eight left behind.</h1>
+      <input class="input" type="search" placeholder="Search the archive…" aria-label="Search" style="min-height:46px">
+      <div style="display:flex;align-items:center;gap:10px;margin:14px 0 24px">
+        <span style="font-size:13px;color:rgba(32,30,29,.65)">Spoilers</span>
+        <div class="seg" role="group" aria-label="Spoiler mode">
+          <label class="seg-opt" style="cursor:pointer"><input type="radio" name="sp-1d" checked="{{ isBefore }}" onChange="{{ setBefore }}">Before</label>
+          <label class="seg-opt" style="cursor:pointer"><input type="radio" name="sp-1d" checked="{{ isAfter }}" onChange="{{ setAfter }}">After</label>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <sc-for list="{{ loreCats }}" as="c" hint-placeholder-count="4">
+          <a href="#1c" class="lore-link" style="background:{{ c.bg }};border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:6px;min-height:120px;justify-content:space-between"><span style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.55);display:grid;place-items:center;font-family:var(--font-heading);font-size:16px;color:{{ c.ink }}">{{ c.count }}</span><span style="font-family:var(--font-heading);font-size:19px">{{ c.name }}</span></a>
+        </sc-for>
+      </div>
+      <span style="display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:32px 0 6px">Start here</span>
+      <div style="display:flex;flex-direction:column;padding-bottom:24px">
+        <sc-for list="{{ featured }}" as="f" hint-placeholder-count="5">
+          <a href="#1c" class="lore-link" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(32,30,29,.08)">
+            <div style="width:48px;height:48px;border-radius:50%;background:{{ f.bg }};display:grid;place-items:center;font-family:var(--font-heading);font-size:18px;color:{{ f.ink }}">{{ f.initial }}</div>
+            <div><div style="font-family:var(--font-heading);font-size:17px;line-height:1.15;filter:{{ f.blur }}">{{ f.name }}</div><div style="font-size:13px;color:rgba(32,30,29,.7);margin-top:3px;filter:{{ f.blur }}">{{ f.blurb }}</div></div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "give <a class="dv-oid" href="#1a">1a</a> a darker, night-sky hero" · "add an About the Book page with chapter excerpts" · "show the lore entry for a location instead of a character" · "mock the press page"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoTilt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showCountdown&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;spoilerMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:null,&quot;options&quot;:[&quot;before&quot;,&quot;after&quot;],&quot;tsType&quot;:&quot;'before'|'after'|null&quot;,&quot;section&quot;:&quot;Lore hub&quot;}}">
+class Component extends DCLogic {
+  state = { rx: 8, ry: -22, mode: 'before' };
+  onHeroMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+    this.setState({ ry: -22 + px * 50, rx: 8 - py * 30 });
+  };
+  onHeroLeave = () => this.setState({ rx: 8, ry: -22 });
+  renderVals() {
+    const mode = this.props.spoilerMode ?? this.state.mode;
+    const before = mode === 'before';
+    const blur = before ? 'blur(6px)' : 'none';
+    const launch = new Date('2026-10-31T00:00:00');
+    const daysLeft = Math.max(0, Math.ceil((launch - Date.now()) / 86400000));
+    const auto = this.props.autoTilt ?? true;
+    const loreCats = [
+      { name: 'Characters', count: 24, size: '220px', bg: 'var(--color-accent-2-300)', ink: 'var(--color-accent-2-800)', blurb: 'The Eight, and everyone who answered to them.' },
+      { name: 'Worlds', count: 9, size: '170px', bg: 'var(--color-accent-200)', ink: 'var(--color-accent-700)', blurb: 'Halcyon Reach, the terraces and the dark side.' },
+      { name: 'Factions', count: 12, size: '190px', bg: 'var(--color-accent-2-200)', ink: 'var(--color-accent-2-800)', blurb: 'Tithe-keepers, the Chairs and the unaligned.' },
+      { name: 'Timeline', count: 26, size: '150px', bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)', blurb: 'From the long quiet to the Summons.' },
+    ];
+    const featured = [
+      { name: 'Ilse Varrow', initial: 'I', cat: 'Character', tagClass: 'tag-accent-2', bg: 'var(--color-accent-2-200)', ink: 'var(--color-accent-2-800)', blurb: 'Third to answer, the only one who came alone.', spoiler: false },
+      { name: 'The Summons', initial: 'S', cat: 'Event', tagClass: 'tag-neutral', bg: 'var(--color-neutral-200)', ink: 'var(--color-neutral-800)', blurb: 'The call that began everything, in three versions.', spoiler: false },
+      { name: 'Halcyon Reach', initial: 'H', cat: 'World', tagClass: 'tag-accent', bg: 'var(--color-accent-200)', ink: 'var(--color-accent-700)', blurb: 'Terraced city on the dark side of the world.', spoiler: false },
+      { name: 'The Ninth Chair', initial: 'IX', cat: 'Faction', tagClass: 'tag-accent-2', bg: 'var(--color-accent-2-200)', ink: 'var(--color-accent-2-800)', blurb: 'The seat that should not exist.', spoiler: true },
+      { name: 'Kethe of the Ninth', initial: 'K', cat: 'Character', tagClass: 'tag-accent-2', bg: 'var(--color-accent-2-200)', ink: 'var(--color-accent-2-800)', blurb: 'Revealed in the final act.', spoiler: true },
+    ].map(f => ({ ...f, blur: f.spoiler ? blur : 'none' }));
+    const infobox = [
+      { k: 'Role', v: 'Third of the Eight', s: false },
+      { k: 'Origin', v: 'Halcyon Reach, lower terraces', s: false },
+      { k: 'Affiliation', v: 'Tithe-keepers (former)', s: false },
+      { k: 'Status', v: 'Alive · Ninth Chair', s: true },
+      { k: 'First seen', v: 'Chapter 1', s: false },
+      { k: 'Voice', v: 'Point-of-view character', s: false },
+    ].map(r => ({ ...r, blur: r.s ? blur : 'none' }));
+    const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(ch => {
+      const has = 'ADHIKNRSTV'.includes(ch);
+      return { ch, bg: has ? 'var(--color-accent-2-200)' : 'var(--color-neutral-100)', ink: has ? 'var(--color-text)' : 'rgba(32,30,29,.35)' };
+    });
+    return {
+      daysLeft, showCountdown: this.props.showCountdown ?? true,
+      bookTransform: `rotateX(${auto ? this.state.rx : 8}deg) rotateY(${auto ? this.state.ry : -22}deg)`,
+      onHeroMove: auto ? this.onHeroMove : undefined, onHeroLeave: auto ? this.onHeroLeave : undefined,
+      isBefore: before, isAfter: !before,
+      setBefore: () => this.setState({ mode: 'before' }), setAfter: () => this.setState({ mode: 'after' }),
+      spoilerBlur: blur, spoilerSelect: before ? 'none' : 'auto',
+      loreCats, featured, infobox, alpha,
+    };
+  }
+}
+</script>
+</body>
+</html>
