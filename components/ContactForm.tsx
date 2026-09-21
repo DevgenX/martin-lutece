@@ -9,7 +9,7 @@ export default function ContactForm() {
       <div className="card-title">Get in touch</div>
       <p className="card-body">Interviews, signings, review copies, rights enquiries. Replies within a few days.</p>
       {sent ? (
-        <p style={{ fontSize: 14, margin: 0, color: "var(--color-accent-2-800)", fontWeight: 600 }}>Message sent. Thank you — you will hear back within a few days.</p>
+        <p className="contact-sent">Message sent. Thank you — you will hear back within a few days.</p>
       ) : (
         <form style={{ display: "contents" }} onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
           <div className="field"><label htmlFor="c-name">Your name</label><input id="c-name" className="input" type="text" placeholder="Name" required /></div>

@@ -14,7 +14,7 @@ export default function BioBox() {
       <p>{BIO}</p>
       {long && <p className="bio-long">{LONG}</p>}
       <div className="row">
-        <button type="button" className="btn btn-secondary" style={{ background: "var(--color-bg)" }} onClick={copy}>{copied ? "Copied" : "Copy bio"}</button>
+        <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? "Copied" : "Copy bio"}</button>
         <button type="button" className="btn btn-ghost" onClick={() => setLong(!long)}>{long ? "Long bio ↑" : "Long bio ↓"}</button>
       </div>
     </div>

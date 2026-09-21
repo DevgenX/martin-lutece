@@ -3,16 +3,17 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { BUY, EPISODES } from "@/lib/data";
+import { Book3D } from "@/components/HeroBook";
 
 export const metadata: Metadata = { title: "Summons of The Eighth Divinity — The Book" };
 
 export default function BookPage() {
   return (
-    <div className="page bookpage">
+    <div className="page codex bookpage">
       <SiteNav />
       <div className="bookpage-grid">
         <div className="bookpage-side">
-          <div style={{ perspective: 1200 }}><div className="cover-3d" role="img" aria-label="Cover of Summons of The Eighth Divinity: The Complete Edition" /></div>
+          <Book3D compact />
           <div className="buy-stack">
             <a href={BUY.kindle} className="btn btn-primary btn-tall" target="_blank" rel="noreferrer">Pre-order · Kindle</a>
             <a href={BUY.nook} className="btn btn-secondary btn-tall btn-glass" target="_blank" rel="noreferrer">Pre-order · Nook</a>
@@ -47,7 +48,7 @@ export default function BookPage() {
               <div className="brainscribed-title">100% Brainscribed™</div>
               <p>The series is written by a human without the aid of generative AI. Artwork by Daniel Schmelling and Henry Acuatico.</p>
             </div>
-            <Link href="/codex#vesiks" className="btn btn-secondary" style={{ background: "var(--color-bg)" }}>Meet the Vesiks →</Link>
+            <Link href="/codex#vesiks" className="btn btn-secondary">Meet the Vesiks →</Link>
           </div>
         </div>
       </div>

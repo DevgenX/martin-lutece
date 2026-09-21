@@ -18,25 +18,28 @@ const Chevron = ({ dir }: { dir: "l" | "r" }) => (
   </svg>
 );
 
-export default function HeroBook() {
+export function Book3D({ compact = false, onOpenChange }: { compact?: boolean; onOpenChange?: (open: boolean) => void }) {
   const [page, setPage] = useState(0);
   const [rx, setRx] = useState(6);
   const [ry, setRy] = useState(-26);
   const [spun, setSpun] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const [daysLeft, setDaysLeft] = useState(0);
   const drag = useRef<{ x: number; y: number; rx: number; ry: number } | null>(null);
   const moved = useRef(false);
   const open = page > 0;
   const restRy = open ? -6 : -26;
 
-  useEffect(() => { setDaysLeft(Math.max(0, Math.ceil((LAUNCH.getTime() - Date.now()) / 86400000))); }, []);
-
   const go = useCallback((p: number) => {
     if (moved.current) { moved.current = false; return; }
     const np = Math.max(0, Math.min(N, p));
     setPage(np); setRy(np > 0 ? -6 : -26); setRx(6); setSpun(false);
-  }, []);
+    onOpenChange?.(np > 0);
+  }, [onOpenChange]);
+  useEffect(() => {
+    const h = () => go(page > 0 ? 0 : 1);
+    window.addEventListener("book:toggle", h);
+    return () => window.removeEventListener("book:toggle", h);
+  }, [go, page]);
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (drag.current) {
@@ -64,31 +67,9 @@ export default function HeroBook() {
   const shift = typeof window !== "undefined" && window.innerWidth < 900 ? 90 : 150;
 
   return (
-    <div className="hero" onPointerMove={onMove} onPointerLeave={onLeave} onPointerUp={onUp}>
-      <Stars />
-      <div className="hero-blob-a" />
-      <div className="hero-blob-b" />
-      <div className="hero-grid">
-        <div className="hero-copy hero-head">
-          <span className="kicker">The Complete Edition · 31 October 2026</span>
-          <h1 className="display hero-title">Summons of<br />The Eighth Divinity</h1>
-        </div>
-        <div className="hero-copy hero-body">
-          <p className="hero-lede">Seven strangers on Earth — a nurse, a fracker, an engineer, a ufologist, an evangelical, a physician and a physicist — receive the same call. Governments and corporations want them. So do visitors from a sister world. Book one of a character-driven science fiction series, now complete in one volume.</p>
-          <div className="hero-actions">
-            <Link href="/book" className="btn btn-primary btn-lg">Pre-order the book</Link>
-            <button type="button" className="btn btn-secondary btn-lg btn-glass" onClick={() => go(open ? 0 : 1)}>{open ? "Close the book" : "Open the book"}</button>
-            <Link href="/codex" className="btn btn-ghost" style={{ fontSize: 15 }}>Explore the lore →</Link>
-          </div>
-          <div className="hero-count">
-            <span className="pulse" />
-            <span><strong>{daysLeft} days</strong> until launch · eBook pre-orders open on Kindle and Nook</span>
-          </div>
-        </div>
-
-        <div className="book-stage">
+        <div className={`book-stage${compact ? " is-compact" : ""}`} onPointerMove={onMove} onPointerLeave={onLeave} onPointerUp={onUp}>
           <div className="book-persp">
-            <div className="book-float">
+            <div className="book-scale"><div className="book-float">
               <div
                 className={`book${dragging ? " is-dragging" : ""}`}
                 style={{ transform: `translateX(${open ? shift : 0}px) rotateX(${rx}deg) rotateY(${ry}deg)` }}
@@ -142,7 +123,7 @@ export default function HeroBook() {
                   );
                 })}
               </div>
-            </div>
+            </div></div>
           </div>
           <div className="book-controls">
             <button type="button" className="btn btn-secondary btn-icon btn-glass" aria-label="Previous page" onClick={() => go(page - 1)}><Chevron dir="l" /></button>
@@ -153,6 +134,36 @@ export default function HeroBook() {
             <button type="button" className="btn btn-secondary btn-icon btn-glass" aria-label="Next page" onClick={() => go(page + 1)}><Chevron dir="r" /></button>
           </div>
         </div>
+  );
+}
+
+export default function HeroBook() {
+  const [open, setOpen] = useState(false);
+  const [daysLeft, setDaysLeft] = useState(0);
+  useEffect(() => { setDaysLeft(Math.max(0, Math.ceil((LAUNCH.getTime() - Date.now()) / 86400000))); }, []);
+  return (
+    <div className="hero">
+      <Stars />
+      <div className="hero-blob-a" />
+      <div className="hero-blob-b" />
+      <div className="hero-grid">
+        <div className="hero-copy hero-head">
+          <span className="kicker">The Complete Edition · 31 October 2026</span>
+          <h1 className="display hero-title">Summons of<br />The Eighth Divinity</h1>
+        </div>
+        <div className="hero-copy hero-body">
+          <p className="hero-lede">Seven strangers on Earth — a nurse, a fracker, an engineer, a ufologist, an evangelical, a physician and a physicist — receive the same call. Governments and corporations want them. So do visitors from a sister world. Book one of a character-driven science fiction series, now complete in one volume.</p>
+          <div className="hero-actions">
+            <Link href="/book" className="btn btn-primary btn-lg">Pre-order the book</Link>
+            <button type="button" className="btn btn-secondary btn-lg btn-glass" onClick={() => window.dispatchEvent(new Event("book:toggle"))}>{open ? "Close the book" : "Open the book"}</button>
+            <Link href="/codex" className="btn btn-ghost" style={{ fontSize: 15 }}>Explore the lore →</Link>
+          </div>
+          <div className="hero-count">
+            <span className="pulse" />
+            <span><strong>{daysLeft} days</strong> until launch · eBook pre-orders open on Kindle and Nook</span>
+          </div>
+        </div>
+        <Book3D onOpenChange={setOpen} />
       </div>
     </div>
   );

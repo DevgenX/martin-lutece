@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import { SpoilerScope, SpoilerVeil } from "@/components/Spoiler";
 import { codexNavItems } from "@/components/CodexBits";
 import { ROSTER } from "@/lib/data";
@@ -116,6 +117,7 @@ export default async function VesikEntry({ params }: { params: Promise<{ slug: s
           <div className="infobox-credit">Art: Daniel Schmelling &amp; Henry Acuatico</div>
         </aside>
       </div>
+      <SiteFooter />
     </SpoilerScope>
   );
 }

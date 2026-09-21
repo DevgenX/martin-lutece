@@ -49,7 +49,7 @@ export default function Home() {
         </div>
         <div className="archive-bubbles">
           {LORE_CATS.map((c) => (
-            <Link key={c.name} href={c.href} className="lore-link bubble" style={{ width: c.size }}>
+            <Link key={c.name} href={c.href} className="lore-link bubble" style={{ width: 176 }}>
               <span className="bubble-count">{c.count}</span>
               <span className="bubble-name">{c.name}</span>
             </Link>

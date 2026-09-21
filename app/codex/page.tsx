@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import SubscribeForm from "@/components/SubscribeForm";
 import { SpoilerScope, SpoilerSwitch } from "@/components/Spoiler";
 import { CatBar, Divider, Sigil, Stars } from "@/components/CodexBits";
@@ -101,6 +102,7 @@ export default function CodexPage() {
         </div>
         <SubscribeForm />
       </div>
+      <SiteFooter subscribe={false} />
     </SpoilerScope>
   );
 }
