@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BUY, LAUNCH } from "@/lib/data";
+import { Stars } from "./CodexBits";
 
 const N = 4;
 const LEAVES = [
@@ -64,6 +65,7 @@ export default function HeroBook() {
 
   return (
     <div className="hero" onPointerMove={onMove} onPointerLeave={onLeave} onPointerUp={onUp}>
+      <Stars />
       <div className="hero-blob-a" />
       <div className="hero-blob-b" />
       <div className="hero-grid">
@@ -75,7 +77,7 @@ export default function HeroBook() {
           <p className="hero-lede">Seven strangers on Earth — a nurse, a fracker, an engineer, a ufologist, an evangelical, a physician and a physicist — receive the same call. Governments and corporations want them. So do visitors from a sister world. Book one of a character-driven science fiction series, now complete in one volume.</p>
           <div className="hero-actions">
             <Link href="/book" className="btn btn-primary btn-lg">Pre-order the book</Link>
-            <button type="button" className="btn btn-secondary btn-lg" style={{ background: "rgba(255,255,255,.35)" }} onClick={() => go(open ? 0 : 1)}>{open ? "Close the book" : "Open the book"}</button>
+            <button type="button" className="btn btn-secondary btn-lg btn-glass" onClick={() => go(open ? 0 : 1)}>{open ? "Close the book" : "Open the book"}</button>
             <Link href="/codex" className="btn btn-ghost" style={{ fontSize: 15 }}>Explore the lore →</Link>
           </div>
           <div className="hero-count">

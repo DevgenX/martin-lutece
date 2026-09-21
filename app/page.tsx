@@ -12,7 +12,7 @@ const QUOTES = [
 
 export default function Home() {
   return (
-    <div className="page home">
+    <div className="page codex home">
       <SiteNav />
 
       <HeroBook />
@@ -34,10 +34,10 @@ export default function Home() {
           <p>The original two episodes, the new third, the Letters of Divinity, and brand-new character and landscape artwork by Daniel Schmelling and Henry Acuatico.</p>
         </div>
         <div className="edition-grid">
-          <div className="card grad-terra"><span className="card-kicker">Episode I</span><span className="card-title">Preskamon</span><p className="card-body">The call arrives. Seven lives on Earth interrupted, one by one.</p></div>
-          <div className="card grad-terra"><span className="card-kicker">Episode II</span><span className="card-title">Verafaj</span><p className="card-body">The Vesiks begin to find each other, and are found.</p></div>
-          <div className="card grad-sage"><span className="card-kicker" style={{ color: "var(--color-accent-2-800)" }}>Episode III · New</span><span className="card-title">Rhykeng</span><p className="card-body">The continuation: the Vesiks make their way to Siberia.</p></div>
-          <div className="card grad-neutral"><span className="card-kicker" style={{ color: "var(--color-neutral-700)" }}>Appendix</span><span className="card-title">The Letters of Divinity</span><p className="card-body">Eight letters, collected for the first time.</p></div>
+          <div className="card is-terra"><span className="card-kicker">Episode I</span><span className="card-title">Preskamon</span><p className="card-body">The call arrives. Seven lives on Earth interrupted, one by one.</p></div>
+          <div className="card is-terra"><span className="card-kicker">Episode II</span><span className="card-title">Verafaj</span><p className="card-body">The Vesiks begin to find each other, and are found.</p></div>
+          <div className="card"><span className="card-kicker">Episode III · New</span><span className="card-title">Rhykeng</span><p className="card-body">The continuation: the Vesiks make their way to Siberia.</p></div>
+          <div className="card"><span className="card-kicker">Appendix</span><span className="card-title">The Letters of Divinity</span><p className="card-body">Eight letters, collected for the first time.</p></div>
         </div>
       </section>
 
@@ -49,8 +49,8 @@ export default function Home() {
         </div>
         <div className="archive-bubbles">
           {LORE_CATS.map((c) => (
-            <Link key={c.name} href={c.href} className={`lore-link bubble ${c.grad}`} style={{ width: c.size }}>
-              <span className="bubble-count" style={{ color: c.ink }}>{c.count}</span>
+            <Link key={c.name} href={c.href} className="lore-link bubble" style={{ width: c.size }}>
+              <span className="bubble-count">{c.count}</span>
               <span className="bubble-name">{c.name}</span>
             </Link>
           ))}

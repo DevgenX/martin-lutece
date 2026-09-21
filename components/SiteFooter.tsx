@@ -4,6 +4,7 @@ import SubscribeForm from "./SubscribeForm";
 export default function SiteFooter() {
   return (
     <div className="site-footer dark">
+     <div className="footer-inner">
       <div className="footer-sub">
         <div>
           <h3>Subscribe for a chance to win a signed poster</h3>
@@ -17,6 +18,7 @@ export default function SiteFooter() {
           {SOCIALS.map((s) => <a key={s} href="#" aria-label={s}>{s}</a>)}
         </div>
       </footer>
+     </div>
     </div>
   );
 }
