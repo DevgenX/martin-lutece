@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="f" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#dfcdb0"/><stop offset=".6" stop-color="#f1e5cf"/><stop offset="1" stop-color="#fbf5ea"/>
+    </linearGradient>
+    <clipPath id="c"><path d="M10 52 C8 44, 12 34, 20 30 C18 26, 22 20, 28 18 C27 14, 32 9, 38 8 C40 5, 46 3, 58 3 C56 10, 52 16, 47 20 C50 20, 54 19, 57 17 C54 25, 48 30, 41 32 C44 33, 48 32, 51 31 C47 38, 40 42, 32 42 C35 44, 38 44, 41 43 C35 49, 27 51, 20 49 C21 52, 24 53, 27 53 C20 56, 13 56, 10 52 Z"/></clipPath>
+  </defs>
+  <!-- feather vane (scalloped, both sides of the shaft, fuller on top) -->
+  <path d="M10 52 C8 44, 12 34, 20 30 C18 26, 22 20, 28 18 C27 14, 32 9, 38 8 C40 5, 46 3, 58 3 C56 10, 52 16, 47 20 C50 20, 54 19, 57 17 C54 25, 48 30, 41 32 C44 33, 48 32, 51 31 C47 38, 40 42, 32 42 C35 44, 38 44, 41 43 C35 49, 27 51, 20 49 C21 52, 24 53, 27 53 C20 56, 13 56, 10 52 Z" fill="url(#f)" stroke="#a89376" stroke-width="1.1" stroke-linejoin="round"/>
+  <!-- barbs, clipped to the vane -->
+  <g clip-path="url(#c)" fill="none" stroke="#c9b48f" stroke-width=".9" opacity=".85">
+    <path d="M14 40 L26 28 M18 32 L30 20 M24 24 L36 12 M20 48 L34 36 M27 44 L40 32 M33 40 L46 26"/>
+  </g>
+  <!-- shaft -->
+  <path d="M7 58 C10 46, 17 32, 30 20 C40 11, 50 5, 58 3" fill="none" stroke="#3d2a12" stroke-width="2.7" stroke-linecap="round"/>
+  <path d="M7 58 C10 46, 17 32, 30 20 C40 11, 50 5, 58 3" fill="none" stroke="#7a5630" stroke-width="1" stroke-linecap="round"/>
+  <!-- ferrule band -->
+  <path d="M8.2 51.8 L12.6 53.6" stroke="#c67139" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- nib -->
+  <path d="M2.5 62 L7 57.5 L11 58.8 Z" fill="#241809" stroke="#120c05" stroke-width=".8" stroke-linejoin="round"/>
+</svg>

@@ -2,6 +2,17 @@
 
 /* ── base ─────────────────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* quill cursor: hotspot at the nib (bottom-left). PNG first for Safari, image-set for retina, SVG where supported. */
+@media (pointer: fine) {
+  html, body, a, button, label, summary, .btn, .seg-opt, .radio, .catpill, .codex details summary, .lore-link, .book, .leaf {
+    cursor: url("/cursor/quill.png") 2 30, auto;
+    cursor: -webkit-image-set(url("/cursor/quill.png") 1x, url("/cursor/quill@2x.png") 2x) 2 30, auto;
+    cursor: image-set(url("/cursor/quill.png") 1x, url("/cursor/quill@2x.png") 2x) 2 30, auto;
+  }
+  input[type="text"], input[type="email"], input[type="search"], textarea { cursor: text; }
+  .book, .leaf { cursor: url("/cursor/quill.png") 2 30, grab; }
+  .book.is-dragging { cursor: url("/cursor/quill.png") 2 30, grabbing; }
+}
 body { background: var(--color-bg); color: var(--color-text); overflow-x: hidden; }
 a:hover { color: var(--color-accent-600); }
 button { font: inherit; }
